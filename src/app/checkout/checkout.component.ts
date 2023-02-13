@@ -29,9 +29,9 @@ export class CheckoutComponent implements OnInit{
 
     this.subscription = this.service.generatePreference().subscribe(
       response => {
-        
-        console.log(response.initPoint)
-        window.location.href = response.initPoint;
+        console.log("-------------------------------------------")
+        console.log(JSON.stringify(response))
+       // window.location.href = response.initPoint;
       }
     )
 

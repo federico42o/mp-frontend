@@ -32,7 +32,7 @@ export class PreferenceService {
       }
     }
     let paymentMethods: PaymentMethods = {
-      excludedPaymentMethods: ['visa'],
+      excludedPaymentMethods: ['Visa'],
       installments: 6
 
     }
