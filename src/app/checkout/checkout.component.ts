@@ -1,29 +1,51 @@
-import { Component,OnInit } from '@angular/core';
-import { Product } from '../models/product';
+import { Component, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
+import { Product, products } from '../models/product';
+import { PreferenceService } from '../services/preference.service';
+
 @Component({
   selector: 'app-checkout',
   templateUrl: './checkout.component.html',
   styleUrls: ['./checkout.component.css']
 })
-export class CheckoutComponent {
+export class CheckoutComponent implements OnInit{
+  ngOnInit(): void { }
 
+  constructor(private service : PreferenceService) { }
+  subscription: Subscription | undefined;
 
-product: Product = 
-    {
-        id: 1111,
-        title: 'iPhone 14 Pro',
-        description: 'Dispositivo móvil de Tienda e-commerce',
-        imageUrl: 'https://www.apple.com/v/iphone/home/bl/images/overview/compare/compare_iphone_14_pro__cjmfbiggqhpy_large.jpg',
-        quantity: 1,
-        price: 1000
+  products=products;
+
+  handleIncrement() {
+    this.products[0].quantity++;
+  }
+  handleDecrement() {
+    if (this.products[0].quantity > 1) {
+      this.products[0].quantity--;
     }
+  }
 
-  addToCart(product: Product) {
-    console.log('Product', product);
-    window.alert(`${product.title} has been added to the cart!`)
+  generatePreference()  {
+
+    this.subscription = this.service.generatePreference().subscribe(
+      response => {
+        
+        console.log(response.initPoint)
+        window.location.href = response.initPoint;
+      }
+    )
+
   }
-  ngOnInit(): void {
-    throw new Error('Method not implemented.');
+
+  ngOnDestroy(): void {
+    if (this.subscription) {
+      this.subscription.unsubscribe();
+    }
+    
   }
+
+
+
+
 
 }
