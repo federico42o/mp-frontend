@@ -9,8 +9,7 @@ import { CheckoutComponent } from './checkout/checkout.component';
 import { ModalComponent } from './modal/modal.component';
 import { StatusViewComponent } from './status-view/status-view.component';
 import { SafePipeModule } from 'safe-pipe';
-import { HomeComponent } from './home/home.component';
-import { MercadoPagoResponse } from 'mercadopago/utils/mercadopago-respose';
+
 
 
 
@@ -21,7 +20,6 @@ import { MercadoPagoResponse } from 'mercadopago/utils/mercadopago-respose';
     CheckoutComponent,
     ModalComponent,
     StatusViewComponent,
-    HomeComponent,
 
   ],
   imports: [

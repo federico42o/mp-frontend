@@ -1,8 +1,8 @@
 <section class="bg-white">
     <div class="relative max-w-4xl px-4 py-8 mx-auto border-2 border-y-[#0960BD] border-x-transparent">
       <div class="grid items-start sm:grid-cols-1 gap-8 md:grid-cols-1">
-          <div class="flex justify-center mt-6">
-            <div class="max-w-[35ch] h-screen/2">
+          <div class="flex justify-center items-center">
+            <div class="">
               
               <h1 class="text-4xl font-bold text-center">
                 Tienda Azul
@@ -19,15 +19,49 @@
               </p>
 
               <!-- animaciones -->
-                <!-- <div class="wrapper"> 
-                  <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52" *ngIf="status === 'success'">
-                      <circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none" />
-                      <path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8" />
-                  </svg>
-                </div> -->
-                <div>
+                <div class="max-w-[35ch] mx-auto">
                   <img [src]="imageSrc"  alt="{{status}}">
                 </div>
+              <!-- animaciones -->
+              <div class="flex flex-col m-2">
+                      <table class="min-w-full text-center">
+                        <tbody>
+                          <tr class="border-b bg-gray-800 boder-gray-900">
+                            <td class="text-sm text-white font-medium px-6 py-4 text-start">
+                              Payment Id
+                            </td>
+                            <td class="text-sm text-white font-light px-6 py-4 text-end">
+                              {{paymentId}}
+                            </td>
+                          </tr>
+                          <tr class="border-b bg-gray-800 boder-gray-900">
+                            <td class="text-sm text-white font-medium px-6 py-4 text-start">
+                              Payment External Reference
+                            </td>
+                            <td class="text-sm text-white font-light px-6 py-4 text-end">
+                              {{externalReference}}
+                            </td>
+                          </tr>
+                          <tr class="border-b bg-gray-800 boder-gray-900">
+                            <td class="text-sm text-white font-medium px-6 py-4 text-start">
+                              Payment Preference Id
+                            </td>
+                            <td class="text-sm text-white font-light px-6 py-4 text-end">
+                              {{preferenceId}}
+                            </td>
+                          </tr>
+                          <tr class="border-b bg-gray-800 boder-gray-900">
+                            <td class="text-sm text-white font-medium px-6 py-4 text-start">
+                              Merchant Order Id
+                            </td>
+                            <td class="text-sm text-white font-light px-6 py-4 text-end">
+                              {{merchantOrderId}}
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+              </div>
+
 
                 <button
                 class="px-3 py-2 text-xs font-medium text-white bg-[#0960BD] rounded hover:bg-[#429FFD] w-3/6 cho-container mx-auto  flex justify-center items-center"

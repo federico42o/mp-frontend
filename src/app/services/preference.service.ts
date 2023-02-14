@@ -53,7 +53,7 @@ export class PreferenceService {
       paymentMethods: paymentMethods,
       autoReturn: 'approved',
       // notificationUrl: 'http://localhost:8080/test/v1/notification',
-      notificationUrl: 'https://2f5d-181-95-181-190.sa.ngrok.io/test/v1/notification',
+      notificationUrl: 'https://2f5d-181-95-181-190.sa.ngrok.io/notification',
       externalReference: 'fedes7777@gmail.com',
     }
     
