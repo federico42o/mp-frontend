@@ -2,7 +2,7 @@ import { Injectable, Input } from '@angular/core';
 import { HttpClient, HttpErrorResponse, HttpHeaders, HttpParams} from '@angular/common/http';
 import { Observable, throwError} from 'rxjs';
 import { catchError, retry } from 'rxjs/operators';
-import {env} from 'src/enviroments/enviroment'
+import {env} from 'src/environments/environment'
 import { Payer } from '../models/payer';
 import { Preference } from '../models/preference';
 import { Product, products } from '../models/product';
