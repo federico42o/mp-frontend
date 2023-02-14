@@ -40,9 +40,9 @@ export class PreferenceService {
 
 
     let backUrls: BackUrls = {
-      success: 'http://localhost:4200/checkout/success',
-      pending: 'http://localhost:4200/checkout/pending',
-      failure: 'http://localhost:4200/checkout/failure'
+      success: '',
+      pending: '',
+      failure: ''
     }
 
     
@@ -52,8 +52,7 @@ export class PreferenceService {
       backUrls: backUrls,
       paymentMethods: paymentMethods,
       autoReturn: 'approved',
-      // notificationUrl: 'http://localhost:8080/test/v1/notification',
-      notificationUrl: 'https://2f5d-181-95-181-190.sa.ngrok.io/notification',
+      notificationUrl: '',
       externalReference: 'fedes7777@gmail.com',
     }
     
@@ -61,7 +60,7 @@ export class PreferenceService {
     
 
 
-    return this.http.post('http://localhost:8080/test/v1/create', preference, {headers: new HttpHeaders({
+    return this.http.post('', preference, {headers: new HttpHeaders({
       'Content-Type': 'application/json'})})
   }
 
