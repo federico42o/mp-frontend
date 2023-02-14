@@ -2,6 +2,7 @@ import { Injectable, Input } from '@angular/core';
 import { HttpClient, HttpErrorResponse, HttpHeaders, HttpParams} from '@angular/common/http';
 import { Observable, throwError} from 'rxjs';
 import { catchError, retry } from 'rxjs/operators';
+import {env} from 'src/environments/environment'
 import { Payer } from '../models/payer';
 import { Preference } from '../models/preference';
 import { Product, products } from '../models/product';
@@ -13,6 +14,8 @@ import { BackUrls } from '../models/back-urls';
 })
 export class PreferenceService {
   
+  backendUrl = env.BACKEND_URL;
+
   constructor(private http: HttpClient) { }
   
   generatePreference(): Observable<any> {
@@ -40,9 +43,9 @@ export class PreferenceService {
 
 
     let backUrls: BackUrls = {
-      success: '',
-      pending: '',
-      failure: ''
+      success: env.BACK_URLS[0],
+      pending: env.BACK_URLS[1],
+      failure: env.BACK_URLS[2]
     }
 
     
@@ -52,7 +55,7 @@ export class PreferenceService {
       backUrls: backUrls,
       paymentMethods: paymentMethods,
       autoReturn: 'approved',
-      notificationUrl: '',
+      notificationUrl: env.NOTIFICATION_URL,
       externalReference: 'fedes7777@gmail.com',
     }
     
@@ -60,7 +63,7 @@ export class PreferenceService {
     
 
 
-    return this.http.post('', preference, {headers: new HttpHeaders({
+    return this.http.post(this.backendUrl, preference, {headers: new HttpHeaders({
       'Content-Type': 'application/json'})})
   }
 
