@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
+import { ModalComponent } from '../modal/modal.component';
 import { Product, products } from '../models/product';
 import { PreferenceService } from '../services/preference.service';
 
@@ -8,13 +9,14 @@ import { PreferenceService } from '../services/preference.service';
   templateUrl: './checkout.component.html',
   styleUrls: ['./checkout.component.css']
 })
-export class CheckoutComponent implements OnInit{
+export class CheckoutComponent implements OnInit, OnDestroy{
   ngOnInit(): void { }
 
-  constructor(private service : PreferenceService) { }
+  constructor(private service : PreferenceService, private modal : ModalComponent) { }
   subscription: Subscription | undefined;
-
+  modalVisible = false;
   products=products;
+  checkoutUrl: string;
 
   handleIncrement() {
     this.products[0].quantity++;
@@ -30,11 +32,21 @@ export class CheckoutComponent implements OnInit{
     this.subscription = this.service.generatePreference().subscribe(
       response => {
         console.log("-------------------------------------------")
-        console.log(JSON.stringify(response))
+        this.checkoutUrl = response.sandboxInitPoint;
+        console.log(this.checkoutUrl)
        // window.location.href = response.initPoint;
       }
     )
 
+  }
+
+
+  openCheckout() {
+    this.modal.checkoutUrl = this.checkoutUrl;
+    this.modal.open();
+  }
+  closeModal() {
+    this.modalVisible = false;
   }
 
   ngOnDestroy(): void {

@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit , Output} from '@angular/core';
+import { Component, EventEmitter, Injectable, Input, OnInit , Output} from '@angular/core';
 import { PreferenceService } from '../services/preference.service';
 
 @Component({
@@ -6,28 +6,20 @@ import { PreferenceService } from '../services/preference.service';
   templateUrl: './modal.component.html',
   styleUrls: ['./modal.component.css']
 })
+@Injectable({
+  providedIn: 'root'
+})
 export class ModalComponent {
 
-  constructor(private service: PreferenceService) { }
+  @Input() checkoutUrl: string;
+  isOpen = false;
 
-  sandBoxLink: string = "";
-
-  isVisible: boolean = false;
-
-  closeModal() : void {
-    this.isVisible = false;
+  open() {
+    this.isOpen = true;
   }
 
-  @Output() open = new EventEmitter();
-
-
-  // ngOnInit(): void {
-  //   this.service.generatePreference().subscribe(response => {
-  //     if(response) {
-  //     this.sandBoxLink = response.sandboxInitPoint
-  //     this.isVisible = true;
-  //   }
-  //     })
-  // }
+  close() {
+    this.isOpen = false;
+  }
   
 }

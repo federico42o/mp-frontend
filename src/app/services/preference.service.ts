@@ -1,5 +1,5 @@
-import { Injectable } from '@angular/core';
-import { HttpClient, HttpErrorResponse, HttpHeaders} from '@angular/common/http';
+import { Injectable, Input } from '@angular/core';
+import { HttpClient, HttpErrorResponse, HttpHeaders, HttpParams} from '@angular/common/http';
 import { Observable, throwError} from 'rxjs';
 import { catchError, retry } from 'rxjs/operators';
 import { Payer } from '../models/payer';
@@ -12,11 +12,12 @@ import { BackUrls } from '../models/back-urls';
   providedIn: 'root'
 })
 export class PreferenceService {
-
+  
   constructor(private http: HttpClient) { }
-
+  
   generatePreference(): Observable<any> {
-
+    
+    
     let payer: Payer = {
       name: 'Lalo',
       surname: 'Landa',
@@ -32,7 +33,7 @@ export class PreferenceService {
       }
     }
     let paymentMethods: PaymentMethods = {
-      excludedPaymentMethods: ['Visa'],
+      excludedPaymentMethods: ['visa'],
       installments: 6
 
     }
@@ -40,9 +41,9 @@ export class PreferenceService {
     console.log(paymentMethods.excludedPaymentMethods)
 
     let backUrls: BackUrls = {
-      success: 'http://localhost:4200',
-      pending: 'http://localhost:4200',
-      failure: 'http://localhost:4200'
+      success: 'http://localhost:4200/success',
+      pending: 'http://localhost:4200/pending',
+      failure: 'http://localhost:4200/failure'
     }
 
     console.log(backUrls.success)
@@ -53,7 +54,8 @@ export class PreferenceService {
       backUrls: backUrls,
       paymentMethods: paymentMethods,
       autoReturn: 'approved',
-      notificationUrl: 'http://localhost:8080/test/v1/notification',
+      // notificationUrl: 'http://localhost:8080/test/v1/notification',
+      notificationUrl: 'https://9a2f-181-95-181-190.sa.ngrok.io/test/v1/notification',
       externalReference: 'fedes7777@gmail.com',
     }
     
@@ -66,9 +68,8 @@ export class PreferenceService {
 
     return this.http.post('http://localhost:8080/test/v1/create', preference, {headers: new HttpHeaders({
       'Content-Type': 'application/json'})})
-
-
   }
+
 
 
 

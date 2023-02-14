@@ -1,5 +1,5 @@
 export interface PaymentMethods {
-    excludedPaymentMethods?: string[];
+    excludedPaymentMethods: string[];
     excludedPaymentTypes?: string[];
     installments?: number;
 
