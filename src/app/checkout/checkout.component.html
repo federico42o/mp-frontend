@@ -1,8 +1,16 @@
-<section class="bg-slate-50">
+<!-- <div class="min-w-fit h-screen bg-zinc-900 bg-opacity-50 mx-auto flex justify-center items-center " *ngIf="modalVisible">
+  <button (click)="closeModal()">X</button>
+  <iframe [src]="checkoutUrl | safe : 'resourceUrl'" class="w-10/12 h-5/6  m-a" rel="noopener">
+  </iframe> 
+</div> -->
+
+
+<section class="bg-slate-50" >
     <div class="mx-auto max-w-fit h-fit">
     <p class="bg-gradient-to-r from-[#47B5FF]  via-[#5BC0F8] to-[#1363DF] bg-clip-text text-5xl font-extrabold text-transparent h-fit">Checkout</p>
     </div>
     <div *ngFor="let product of products">
+
     <div class="relative max-w-4xl px-4 py-8 mx-auto border-2 border-y-[#0960BD] border-x-transparent">
       <div class="grid items-start sm:grid-cols-1 gap-8 md:grid-cols-2">
         <div class="grid xl:grid-cols-1 gap-4 md:grid-cols-1 ">
@@ -157,7 +165,7 @@
                 <span>
                     <input name="quantity" id="quantity" [(ngModel)]="product.quantity" min="1" class="w-12 rounded py-3 text-center text-xs " disabled >
                 </span>
-                <button class="max-w-fit rounded border-gray-200 py-3 text-xl"  (click)="handleIncrement()">+</button>
+                <button id="button-checkout" class="max-w-fit rounded border-gray-200 py-3 text-xl"  (click)="handleIncrement()">+</button>
             </div>
 
         <div class="flex">
@@ -168,7 +176,7 @@
         </div>
 
           <button
-            class="px-5 py-3 text-xs font-medium text-white bg-[#0960BD] rounded hover:bg-[#429FFD] w-3/6"
+            class="px-5 py-3 text-xs font-medium text-white bg-[#0960BD] rounded hover:bg-[#429FFD] w-3/6 cho-container"
             (click) = "generatePreference()"
           >
             Pagar la compra

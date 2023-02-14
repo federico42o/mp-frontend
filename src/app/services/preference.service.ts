@@ -38,15 +38,13 @@ export class PreferenceService {
 
     }
 
-    console.log(paymentMethods.excludedPaymentMethods)
 
     let backUrls: BackUrls = {
-      success: 'http://localhost:4200/success',
-      pending: 'http://localhost:4200/pending',
-      failure: 'http://localhost:4200/failure'
+      success: 'http://localhost:4200/checkout/success',
+      pending: 'http://localhost:4200/checkout/pending',
+      failure: 'http://localhost:4200/checkout/failure'
     }
 
-    console.log(backUrls.success)
     
     let preference: Preference = {
       items: products,
@@ -55,15 +53,12 @@ export class PreferenceService {
       paymentMethods: paymentMethods,
       autoReturn: 'approved',
       // notificationUrl: 'http://localhost:8080/test/v1/notification',
-      notificationUrl: 'https://9a2f-181-95-181-190.sa.ngrok.io/test/v1/notification',
+      notificationUrl: 'https://2f5d-181-95-181-190.sa.ngrok.io/test/v1/notification',
       externalReference: 'fedes7777@gmail.com',
     }
     
 
     
-    let preferenceJson = JSON.stringify(preference);
-    console.log(preferenceJson)
-
 
 
     return this.http.post('http://localhost:8080/test/v1/create', preference, {headers: new HttpHeaders({

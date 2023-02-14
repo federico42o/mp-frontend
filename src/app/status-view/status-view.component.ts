@@ -9,16 +9,24 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class StatusViewComponent implements OnInit{
 
-  status : string = "success";
-
-
+  status : string | null;
+  imageSrc : string;
+  
+  
   constructor(private titleService: Title, private route: ActivatedRoute) {
-    this.titleService.setTitle('Tienda Azul - Pago Exitoso');
+    this.titleService.setTitle('Tienda Azul');
   }
+  
+  
+
+  
   ngOnInit(): void {
-    throw new Error('Method not implemented.');
+
+    const routeParam = this.route.snapshot.paramMap;
+    this.status = routeParam.get('status');
+    this.imageSrc = './assets/images/' + this.status + '.gif';
   }
-
-
-
+  
+  
 }
+  

@@ -8,6 +8,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { ModalComponent } from './modal/modal.component';
 import { StatusViewComponent } from './status-view/status-view.component';
+import { SafePipeModule } from 'safe-pipe';
+import { HomeComponent } from './home/home.component';
+import { MercadoPagoResponse } from 'mercadopago/utils/mercadopago-respose';
+
 
 
 @NgModule({
@@ -17,6 +21,7 @@ import { StatusViewComponent } from './status-view/status-view.component';
     CheckoutComponent,
     ModalComponent,
     StatusViewComponent,
+    HomeComponent,
 
   ],
   imports: [
@@ -24,7 +29,8 @@ import { StatusViewComponent } from './status-view/status-view.component';
     HttpClientModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    FormsModule
+    FormsModule,
+    SafePipeModule
   ],
   providers: [],
   bootstrap: [AppComponent]
