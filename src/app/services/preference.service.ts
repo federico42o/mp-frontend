@@ -23,7 +23,7 @@ export class PreferenceService {
     
     let payer: Payer = {
       name: 'Lalo',
-      surname: 'Landa',
+      lastName: 'Landa',
       email: 'test_user_36961754@testuser.com',
       phone: {
         number: '54128866',

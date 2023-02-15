@@ -1,6 +1,6 @@
 export interface Payer {
     name: string;
-    surname: string;
+    lastName: string;
     email: string;
     phone: {
         number: string;
