@@ -23,7 +23,7 @@ export class PreferenceService {
     
     let payer: Payer = {
       name: 'Lalo',
-      surname: 'Landa',
+      lastName: 'Landa',
       email: 'test_user_36961754@testuser.com',
       phone: {
         number: '54128866',
@@ -64,7 +64,10 @@ export class PreferenceService {
 
 
     return this.http.post(this.backendUrl, preference, {headers: new HttpHeaders({
-      'Content-Type': 'application/json'})})
+      'Content-Type': 'application/json',
+      "x-integrator-id": "dev_24c65fb163bf11ea96500242ac130004"
+    
+    })})
   }
 
 
