@@ -64,7 +64,10 @@ export class PreferenceService {
 
 
     return this.http.post(this.backendUrl, preference, {headers: new HttpHeaders({
-      'Content-Type': 'application/json'})})
+      'Content-Type': 'application/json',
+      "x-integrator-id": "dev_24c65fb163bf11ea96500242ac130004"
+    
+    })})
   }
 
 
