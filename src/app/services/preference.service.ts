@@ -60,14 +60,15 @@ export class PreferenceService {
     }
     
 
-    
-
-
-    return this.http.post(this.backendUrl, preference, {headers: new HttpHeaders({
+    let options : HttpHeaders = new HttpHeaders({
       'Content-Type': 'application/json',
-      "x-integrator-id": "dev_24c65fb163bf11ea96500242ac130004"
+      'x-integrator-id': 'dev_24c65fb163bf11ea96500242ac130004'
+    })
+
     
-    })})
+
+
+    return this.http.post(this.backendUrl, preference, {headers: options})
   }
 
 
